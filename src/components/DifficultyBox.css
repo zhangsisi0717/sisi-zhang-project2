@@ -1,0 +1,33 @@
+.diff-box-outer-container {
+  background-color: rgb(146, 221, 200, 0.5);
+  position: absolute;
+  width: 600px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.game-level-box {
+  width: 250px;
+  height: 50px;
+  background-color: white;
+  margin: 10px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  color: rgb(0, 98, 66);
+}
+
+.game-level-box:hover {
+  cursor: pointer;
+  background-color: rgb(0, 98, 66);
+  color: white;
+}
