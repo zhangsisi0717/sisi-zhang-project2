@@ -20,15 +20,26 @@
   transform: translate(-50%, -50%);
 }
 
-/* .userInput {
+.diffIndicator {
   position: absolute;
-  top: 5%;
-  left: 40%;
+  width: 400px;
+  height: 100px;
+  top: 40%;
+  left: 50%;
   transform: translate(-50%, -50%);
-} */
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: rgb(0, 98, 66);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
-/* .submit-button {
+.word-list {
   position: absolute;
-  top: 2%;
-  left: 60%;
-} */
+  width: 400px;
+  height: 100px;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
