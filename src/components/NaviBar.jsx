@@ -7,13 +7,12 @@ export default function NaviBar() {
   return (
     <div className="navi-bar">
       <a className="wordle">Wordle</a>
+
       <Link to={"/home"}>
         <button className="home-button">Home</button>
       </Link>
       <Link to={"/rule"}>
-        <button className="rule-button" href="/home/rule">
-          Rule
-        </button>
+        <button className="rule-button">Rule</button>
       </Link>
     </div>
   );

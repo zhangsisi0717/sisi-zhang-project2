@@ -2,7 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./pages/App";
 import Rule from "./pages/Rule";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Game from "./pages/Game";
+import NaviBar from "./components/NaviBar";
+import { Router, BrowserRouter, Route, Routes } from "react-router-dom";
+import DifficultyBox from "./components/DifficultyBox";
 
 // import React from "react";
 // import ReactDOM from "react-dom";
@@ -15,10 +18,14 @@ ReactDOM.render(<App />, document.getElementById("root"));
 
 ReactDOM.render(
   <BrowserRouter>
+    <NaviBar />
     <Routes>
       <Route path="/home" element={<App />} />
       <Route path="/rule" element={<Rule />} />
+      <Route path="/game/:difficulty" element={<Game />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById("root")
 );
+
+// <Route path="/game/:difficulty?" element={<Game />} />

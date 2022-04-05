@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import NaviBar from "../components/NaviBar";
 import DifficultyBox from "../components/DifficultyBox";
-import "./App.css";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <NaviBar />
       <DifficultyBox />
     </div>
   );
