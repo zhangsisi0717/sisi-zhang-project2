@@ -42,8 +42,56 @@ function attemptsReducer(state = 0, action) {
   return state;
 }
 
+function isGameOn(state = false, action) {
+  if (action.type === "SET_GAME_ON") {
+    return true;
+  }
+
+  if (action.type === "SET_GAME_OFF") {
+    return false;
+  }
+
+  return state;
+}
+
+function setGameDifficulty(state = null, action) {
+  if (action.type === "SET_GAME_DIFFICULTY") {
+    return action.value;
+  }
+  return state;
+}
+
+function genTargetWord(difficulty) {
+  if (difficulty === "easy") {
+    return "apple";
+  } else if (difficulty === "medium") {
+    return "eleven";
+  } else {
+    return "jazzman";
+  }
+}
+
+function setGameAttribute(
+  state = { isGameOn: false, gameDifficulty: null, answer: null },
+  action
+) {
+  if (action.type === "SET_GAME_ON") {
+    let word = genTargetWord(action.value);
+    return {
+      isGameOn: true,
+      gameDifficulty: action.value,
+      answer: word,
+    };
+  }
+
+  return state;
+}
+
 export default combineReducers({
   getMessage: messageReducer,
   getHistory: historyReducer,
   getAttempts: attemptsReducer,
+  getGameDifficulty: setGameDifficulty,
+  isGameOn: isGameOn,
+  getGameAttribute: setGameAttribute,
 });

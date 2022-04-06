@@ -6,23 +6,33 @@ import "./InputHistory.css";
 
 export default function InputHistory(props) {
   const dispatch = useDispatch();
-  const target = genTargetWord(props.difficulty);
   const numChances = props.diffInfo[props.difficulty].total;
   const [userInput, setInput] = useState("");
   const [gameOver, setOver] = useState(false);
-  //   const [numAttempts, setTotalAttempt] = useState(0);
   const inputHistory = useSelector((state) => state.getHistory, shallowEqual);
   const numAttempts = useSelector((state) => state.getAttempts, shallowEqual);
-
-  function genTargetWord(difficulty) {
-    if (difficulty === "easy") {
-      return "apple";
-    } else if (difficulty === "medium") {
-      return "eleven";
-    } else {
-      return "jazzman";
-    }
+  const gameAttribute = useSelector(
+    (state) => state.getGameAttribute,
+    shallowEqual
+  );
+  // function genTargetWord(difficulty) {
+  //   if (difficulty === "easy") {
+  //     return "apple";
+  //   } else if (difficulty === "medium") {
+  //     return "eleven";
+  //   } else {
+  //     return "jazzman";
+  //   }
+  // }
+  if (
+    !gameAttribute.isGameOn ||
+    gameAttribute.difficulty !== props.difficulty ||
+    !gameAttribute.answer
+  ) {
+    dispatch({ type: "SET_GAME_ON", value: props.difficulty });
   }
+
+  const target = gameAttribute.answer;
 
   function isInputValid(target, input) {
     if (input.length < target.length) {
