@@ -1,9 +1,14 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, shallowEqual } from "react-redux";
 import "./RuleBox.css";
 
 export default function RuleBox() {
-  let isGameOn = useSelector((state) => state.isGameOn);
+  const gameAttribute = useSelector(
+    (state) => state.getGameAttribute,
+    shallowEqual
+  );
+  console.log(gameAttribute.gameDifficulty);
+  let gameURL = `/game/${gameAttribute.gameDifficulty}`;
   return (
     <div className="outer-container">
       <div className="rule-title">Game Rule</div>
@@ -21,9 +26,11 @@ export default function RuleBox() {
         "E" will be marked in gray like the other missing letters since E only
         appears once in the word, thus will only be highlighted yellow once.
       </p>
-      <div className="back-to-game-button" disabled={!isGameOn}>
-        Back To Game
-      </div>
+      <a href={gameURL}>
+        <div className="back-to-game-button" disabled={!gameAttribute.isGameOn}>
+          Back To Game
+        </div>
+      </a>
     </div>
   );
 }

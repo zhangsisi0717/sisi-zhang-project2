@@ -10,23 +10,21 @@ export default function InputHistory(props) {
   const [userInput, setInput] = useState("");
   const [gameOver, setOver] = useState(false);
   const inputHistory = useSelector((state) => state.getHistory, shallowEqual);
+  console.log("input history == ");
+  console.log(inputHistory);
   const numAttempts = useSelector((state) => state.getAttempts, shallowEqual);
+  console.log("num attempts ===");
+  console.log(numAttempts);
   const gameAttribute = useSelector(
     (state) => state.getGameAttribute,
     shallowEqual
   );
-  // function genTargetWord(difficulty) {
-  //   if (difficulty === "easy") {
-  //     return "apple";
-  //   } else if (difficulty === "medium") {
-  //     return "eleven";
-  //   } else {
-  //     return "jazzman";
-  //   }
-  // }
+
+  console.log(gameAttribute.gameDifficulty);
+
   if (
     !gameAttribute.isGameOn ||
-    gameAttribute.difficulty !== props.difficulty ||
+    gameAttribute.gameDifficulty !== props.difficulty ||
     !gameAttribute.answer
   ) {
     dispatch({ type: "SET_GAME_ON", value: props.difficulty });
@@ -137,6 +135,7 @@ export default function InputHistory(props) {
         <div className="input-field">
           <input
             className="userInput"
+            value={userInput}
             onInput={(event) => {
               setInput(event.target.value);
             }}
@@ -151,10 +150,17 @@ export default function InputHistory(props) {
             submit
           </button>
         </div>
-      </div>
-      <div className="word-list">
-        Here is list
-        {allWords}
+        <div className="word-list">{allWords}</div>
+        <div
+          className="restart-button"
+          onClick={() => {
+            console.log("restart button clicked");
+            setInput("");
+            dispatch({ type: "RESET" });
+          }}
+        >
+          Restart
+        </div>
       </div>
     </div>
   );
