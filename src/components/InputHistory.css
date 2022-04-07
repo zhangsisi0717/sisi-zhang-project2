@@ -1,10 +1,36 @@
+.input-history {
+  position: fixed;
+  width: 450px;
+  height: 500px;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  border: none;
+}
+.diffIndicator {
+  position: absolute;
+  width: 400px;
+  height: 100px;
+  /* top: 0%; */
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: rgb(0, 98, 66);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .input-outer-container {
   background-color: white;
   position: absolute;
   width: 400px;
   height: 400px;
   border: #92ddc8 solid 10px;
-  top: 60%;
+  top: 53%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -20,27 +46,37 @@
   transform: translate(-50%, -50%);
 }
 
-.diffIndicator {
-  position: absolute;
-  width: 400px;
-  height: 100px;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 20px;
+.submit-button {
+  background-color: #92ddc8; /* Green */
+  border: none;
+  border-radius: 2px;
+  color: white;
+  padding: 9px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  color: rgb(0, 98, 66);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+}
+
+.submit-button:hover {
+  border: #0abab5 3px solid;
+  background-color: white;
+  color: #0abab5;
+}
+
+input {
+  border: #92ddc8 solid 2px;
+  border-radius: 2px;
 }
 
 .word-list {
   position: absolute;
   width: 400px;
   height: 100px;
-  top: 60%;
-  left: 50%;
+  top: 30%;
+  left: 89%;
   transform: translate(-50%, -50%);
 }
 
@@ -53,10 +89,18 @@
   bottom: 5%;
   border-radius: 10px;
   transform: translate(-50%, -50%);
-  background-color: rgb(101, 168, 101);
+  background-color: #92ddc8;
+  /* background-color: rgb(101, 168, 101); */
   justify-content: center;
   align-items: center;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: white;
   cursor: pointer;
+  font-size: 20px;
+}
+
+.restart-button:hover {
+  border: #0abab5 5px solid;
+  background-color: white;
+  color: #0abab5;
 }

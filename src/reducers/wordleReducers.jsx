@@ -1,37 +1,24 @@
 import { act } from "react-dom/test-utils";
 import { combineReducers } from "redux";
+import {
+  easyCandidates,
+  mediumCandidates,
+  hardCandidates,
+} from "../files/wordsCollection";
 
-/** 
- * 
- * 
- * const initState = {
-  message: "",
-  historyInput: [],
-  numAttempts: 0,
-  isGameOn: false,
-  gameDifficulty: null,
-  answer: null,
-};
-*/
+///Following is the initial state of Redux Store
+// const initState = {
+//   message: "",
+//   historyInput: [],
+//   usedWords: new Set(),
+//   numAttempts: 0,
+//   isGameOn: false,
+//   gameDifficulty: null,
+//   answer: null,
+// };
+///
 
-// function messageReducer(state = initState, action) {
-//   if (action.type === "CHANGE_MESSAGE") {
-//     let copyState = {
-//       ...state,
-//       historyInput: [...state.historyInput],
-//       message: action.value,
-//     };
-//     console.log("change message called");
-//     return copyState;
-//   }
-
-//   if (action.type === "RESET") {
-//     return initState;
-//   }
-//   return state;
-// }
-
-function messageReducer(state = "", action) {
+function messageReducer(state = "this is the test init message", action) {
   if (action.type === "CHANGE_MESSAGE") {
     return action.value;
   }
@@ -42,27 +29,9 @@ function messageReducer(state = "", action) {
   return state;
 }
 
-// function historyReducer(state = initState, action) {
-//   console.log("add to history called");
-//   console.log(action);
-//   if (action.type === "ADD_TO_HISTORY") {
-//     let copyState = {
-//       historyInput: [...state.historyInput],
-//     };
-//     copyState.historyInput.push(action.value);
-//     return copyState;
-//   }
-
-//   if (action.type === "RESET") {
-//     return initState;
-//   }
-
-//   return state;
-// }
-
 function historyReducer(state = [], action) {
-  console.log("add to history called");
-  console.log(action);
+  // console.log("add to history called");
+  // console.log(action);
   if (action.type === "ADD_TO_HISTORY") {
     let copyState = [...state];
     copyState.push(action.value);
@@ -75,26 +44,8 @@ function historyReducer(state = [], action) {
   return state;
 }
 
-// function attemptsReducer(state = initState, action) {
-//   console.log("attemptsReducer called");
-//   if (action.type === "ADD_ONE_ATTEMPT") {
-//     let copyState = {
-//       ...state,
-//       historyInput: [...state.historyInput],
-//       numAttempts: state.numAttempts + 1,
-//     };
-//     return copyState;
-//   }
-
-//   if (action.type === "RESET") {
-//     return initState;
-//   }
-
-//   return state;
-// }
-
 function attemptsReducer(state = 0, action) {
-  console.log("attemptsReducer called");
+  // console.log("attemptsReducer called");
   if (action.type === "ADD_ONE_ATTEMPT") {
     return state + 1;
   }
@@ -106,12 +57,13 @@ function attemptsReducer(state = 0, action) {
 }
 
 function genTargetWord(difficulty) {
+  const idx = Math.floor(Math.random() * 100);
   if (difficulty === "easy") {
-    return "apple";
+    return easyCandidates[idx];
   } else if (difficulty === "medium") {
-    return "eleven";
+    return mediumCandidates[idx];
   } else {
-    return "jazzman";
+    return hardCandidates[idx];
   }
 }
 
@@ -121,6 +73,7 @@ function setGameAttribute(
 ) {
   if (action.type === "SET_GAME_ON") {
     let word = genTargetWord(action.value);
+    console.log(`target word is: ${word}`);
     return {
       isGameOn: true,
       gameDifficulty: action.value,
@@ -135,30 +88,26 @@ function setGameAttribute(
   return state;
 }
 
-// function setInitGameAttribute(state = initState, action) {
-//   console.log("setInitGameAttribute called");
-//   if (action.type === "SET_GAME_ON") {
-//     let word = genTargetWord(action.value);
-//     return {
-//       message: "",
-//       historyInput: [],
-//       numAttempts: 0,
-//       isGameOn: true,
-//       gameDifficulty: action.value,
-//       answer: word,
-//     };
-//   }
+function usedWordsReducer(state = [], action) {
+  if (action.type === "ADD_WORD") {
+    console.log("add used words called");
+    const newState = [...state];
+    newState.push(action.value);
+    console.log(newState);
+    return newState;
+  }
 
-//   if (action.type === "RESET") {
-//     return initState;
-//   }
+  if (action.type === "RESET") {
+    return [];
+  }
 
-//   return state;
-// }
+  return state;
+}
 
 export default combineReducers({
   getMessage: messageReducer,
   getHistory: historyReducer,
   getAttempts: attemptsReducer,
   getGameAttribute: setGameAttribute,
+  getUsedWords: usedWordsReducer,
 });

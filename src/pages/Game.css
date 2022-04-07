@@ -1,43 +1,42 @@
-/* .diffIndicator {
-  position: absolute;
-  width: 400px;
-  height: 100px;
-  top: 40%;
+/* .game-outline-box {
+  position: fixed;
+  width: 600px;
+  height: 500px;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 20px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  color: rgb(0, 98, 66);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  background-color: transparent;
+  border: black 5px solid;
 } */
 
 .header-message {
+  border: #f9b949 3px solid;
+  border-radius: 20px;
   display: flex;
   position: absolute;
   width: 400px;
-  height: 20px;
-  top: 25%;
+  height: 50px;
+  top: 27%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
-  color: #92ddc8 bold;
+  background-color: #f8e5b7;
+  /* color: #92ddc8 bold; */
   font-size: 22px;
   justify-content: center;
+  align-items: center;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serifs;
 }
 
 .message-box {
   display: flex;
   position: absolute;
-  width: 400px;
+  width: 700px;
   height: 30px;
-  top: 30%;
+  top: 34%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-  color: red;
+  color: rgb(221, 86, 86);
   font-size: 20px;
   justify-content: center;
 }

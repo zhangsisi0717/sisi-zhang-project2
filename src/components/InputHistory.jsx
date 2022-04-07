@@ -3,24 +3,26 @@ import { useDispatch } from "react-redux";
 import { shallowEqual, useSelector } from "react-redux";
 import WordElement from "./WordElement";
 import "./InputHistory.css";
+import {
+  allWordsEasySet,
+  allWordsMediumSet,
+  allWordsHardSet,
+} from "../files/wordsCollection";
 
 export default function InputHistory(props) {
   const dispatch = useDispatch();
   const numChances = props.diffInfo[props.difficulty].total;
   const [userInput, setInput] = useState("");
-  const [gameOver, setOver] = useState(false);
   const inputHistory = useSelector((state) => state.getHistory, shallowEqual);
-  console.log("input history == ");
-  console.log(inputHistory);
   const numAttempts = useSelector((state) => state.getAttempts, shallowEqual);
-  console.log("num attempts ===");
-  console.log(numAttempts);
   const gameAttribute = useSelector(
     (state) => state.getGameAttribute,
     shallowEqual
   );
-
-  console.log(gameAttribute.gameDifficulty);
+  const usedWords = useSelector((state) => state.getUsedWords, shallowEqual);
+  console.log("here1, usedWords ===");
+  console.log(usedWords);
+  // console.log(gameAttribute.gameDifficulty);
 
   if (
     !gameAttribute.isGameOn ||
@@ -32,16 +34,31 @@ export default function InputHistory(props) {
 
   const target = gameAttribute.answer;
 
-  function isInputValid(target, input) {
+  function isInputAlreadyUsed(input) {
+    console.log("isInputAlreadyUsed called");
+    console.log(usedWords);
+    input = input.toUpperCase();
+    console.log(`input == ${input}`);
+    if (usedWords.includes(input)) {
+      dispatch({
+        type: "CHANGE_MESSAGE",
+        value: "Already used this word, please enter a new one!",
+      });
+      return true;
+    }
+    return false;
+  }
+
+  function isInputCorrectLength(target, input) {
     if (input.length < target.length) {
-      console.log("length is not equal");
+      // console.log("length is not equal");
       dispatch({
         type: "CHANGE_MESSAGE",
         value: "Please input longer word",
       });
       return false;
     } else if (input.length > target.length) {
-      console.log("length is not equal");
+      // console.log("length is not equal");
       dispatch({
         type: "CHANGE_MESSAGE",
         value: "Please input shorter word",
@@ -51,6 +68,35 @@ export default function InputHistory(props) {
     return true;
   }
 
+  function isInputAllLetters(input) {
+    for (let e of input) {
+      if (e.toLowerCase() === e.toUpperCase()) {
+        dispatch({
+          type: "CHANGE_MESSAGE",
+          value: "Not a word, please input a valid word!",
+        });
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function isInputValidWord(input) {
+    input = input.toLowerCase();
+    if (props.difficulty === "easy" && allWordsEasySet.has(input)) {
+      return true;
+    } else if (props.difficulty === "medium" && allWordsMediumSet.has(input)) {
+      return true;
+    } else if (props.difficulty === "hard" && allWordsHardSet.has(input)) {
+      return true;
+    } else {
+      dispatch({
+        type: "CHANGE_MESSAGE",
+        value: "Not a word, please input a valid word",
+      });
+      return false;
+    }
+  }
   function createTargetCounter(target) {
     const map = new Map();
     for (let i = 0; i < target.length; i++) {
@@ -92,31 +138,38 @@ export default function InputHistory(props) {
 
   function checkCorrectness(target, input) {
     if (input === target) {
-      setOver(true);
       dispatch({ type: "ADD_ONE_ATTEMPT" });
       dispatch({
         type: "CHANGE_MESSAGE",
-        value: `Congratulations! You win!`,
+        value: `Congratulations! You win! The answer is '${target}'`,
       });
     } else if (numChances - numAttempts <= 1) {
-      setOver(true);
       dispatch({ type: "ADD_ONE_ATTEMPT" });
       dispatch({
         type: "CHANGE_MESSAGE",
-        value: `Sorry, you lose`,
+        value: `Sorry, you lose. The answer is '${target}'`,
       });
     } else {
       const map = createTargetCounter(target);
       const re = [];
       wordCheckFirst(target, input, re, map);
       wordCheckSecond(target, input, re, map);
+      dispatch({ type: "CHANGE_MESSAGE", value: "" });
       dispatch({ type: "ADD_ONE_ATTEMPT" });
       dispatch({ type: "ADD_TO_HISTORY", value: re });
+      dispatch({ type: "ADD_WORD", value: input });
     }
   }
 
   function checkWord(target, input) {
-    if (isInputValid(target, input)) {
+    if (
+      isInputCorrectLength(target, input) &&
+      isInputAllLetters(input) &&
+      isInputValidWord(input) &&
+      !isInputAlreadyUsed(input)
+    ) {
+      target = target.toUpperCase();
+      input = input.toUpperCase();
       checkCorrectness(target, input);
     }
   }
@@ -126,7 +179,7 @@ export default function InputHistory(props) {
   ));
 
   return (
-    <div>
+    <div className="input-history">
       <div className="diffIndicator">
         <div>Level: {props.difficulty}</div>
         <div>Attempts Left: {numChances - numAttempts}</div>
@@ -142,19 +195,18 @@ export default function InputHistory(props) {
           />
           <button
             className="submit-button"
-            disabled={gameOver}
+            disabled={numChances == numAttempts}
             onClick={() => {
               checkWord(target, userInput);
             }}
           >
-            submit
+            Submit
           </button>
         </div>
         <div className="word-list">{allWords}</div>
         <div
           className="restart-button"
           onClick={() => {
-            console.log("restart button clicked");
             setInput("");
             dispatch({ type: "RESET" });
           }}

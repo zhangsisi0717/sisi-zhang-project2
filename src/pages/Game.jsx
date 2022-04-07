@@ -20,7 +20,7 @@ export default function Game() {
 
   console.log(message);
   return (
-    <div>
+    <div className="game-outline-box">
       <div className="header-message">
         Please input words with length of {diffInfo[difficulty].length}
       </div>

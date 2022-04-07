@@ -23,7 +23,8 @@ export default function WordElement(props) {
       items.push(
         <a
           style={{
-            fontSize: 20,
+            fontSize: 25,
+            fontFamily: "courier",
             backgroundColor: `${element[1]}`,
           }}
         >
@@ -31,6 +32,6 @@ export default function WordElement(props) {
         </a>
       );
     }
-    return <div>{items}</div>;
+    return <div style={{ margin: 10 }}>{items}</div>;
   }
 }

@@ -10,15 +10,6 @@ import NaviBar from "./components/NaviBar";
 import DifficultyBox from "./components/DifficultyBox";
 import combineReducers from "./reducers/wordleReducers";
 
-// import React from "react";
-// import ReactDOM from "react-dom";
-// import { Provider } from "react-redux";
-// import { createStore } from "redux";
-// import App from "./component/App";
-// import combineReducers from "./reducers/calReducer";
-
-// ReactDOM.render(<App />, document.getElementById("root"));
-
 // const saveState = (state) => {
 //   try {
 //     // Convert the state to a JSON string
