@@ -6,7 +6,7 @@ import "./NaviBar.css";
 export default function NaviBar() {
   return (
     <div className="navi-bar">
-      <a className="wordle">Wordle</a>
+      <div className="wordle">Wordle</div>
 
       <Link to={"/home"}>
         <button className="home-button">Home</button>

@@ -35,3 +35,18 @@
 a {
   text-decoration: none;
 }
+
+@media (max-width: 600px) {
+  .diff-box-outer-container {
+    position: absolute;
+    width: 80vw;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .game-level-box {
+    width: 50vw;
+  }
+}

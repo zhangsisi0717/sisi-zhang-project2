@@ -29,8 +29,3 @@ export default function Game() {
     </div>
   );
 }
-
-// <div className="diffIndicator">
-// <div>Level: {difficulty}</div>
-// <div>Attempts Left: 5</div>
-// </div>
