@@ -20,6 +20,7 @@ export default function InputHistory(props) {
     shallowEqual
   );
   const usedWords = useSelector((state) => state.getUsedWords, shallowEqual);
+  const isGameOver = useSelector((state) => state.isGameOver, shallowEqual);
   console.log("here1, usedWords ===");
   console.log(usedWords);
   // console.log(gameAttribute.gameDifficulty);
@@ -139,12 +140,14 @@ export default function InputHistory(props) {
   function checkCorrectness(target, input) {
     if (input === target) {
       dispatch({ type: "ADD_ONE_ATTEMPT" });
+      dispatch({ type: "SET_GAME_OVER" });
       dispatch({
         type: "CHANGE_MESSAGE",
         value: `Congratulations! You win! The answer is '${target}'`,
       });
     } else if (numChances - numAttempts <= 1) {
       dispatch({ type: "ADD_ONE_ATTEMPT" });
+      dispatch({ type: "SET_GAME_OVER" });
       dispatch({
         type: "CHANGE_MESSAGE",
         value: `Sorry, you lose. The answer is '${target}'`,
@@ -195,7 +198,7 @@ export default function InputHistory(props) {
           />
           <button
             className="submit-button"
-            disabled={numChances == numAttempts}
+            disabled={isGameOver}
             onClick={() => {
               checkWord(target, userInput);
             }}

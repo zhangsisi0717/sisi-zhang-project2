@@ -104,10 +104,21 @@ function usedWordsReducer(state = [], action) {
   return state;
 }
 
+function isGameOver(state = false, action) {
+  if (action.type === "SET_GAME_OVER") {
+    return true;
+  }
+  if (action.type === "RESET") {
+    return false;
+  }
+  return state;
+}
+
 export default combineReducers({
   getMessage: messageReducer,
   getHistory: historyReducer,
   getAttempts: attemptsReducer,
   getGameAttribute: setGameAttribute,
   getUsedWords: usedWordsReducer,
+  isGameOver: isGameOver,
 });

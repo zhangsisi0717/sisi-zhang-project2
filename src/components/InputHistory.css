@@ -13,7 +13,7 @@
   width: 400px;
   height: 100px;
   /* top: 0%; */
-  top: 15%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 20px;
@@ -30,7 +30,7 @@
   width: 400px;
   height: 400px;
   border: #92ddc8 solid 10px;
-  top: 53%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
