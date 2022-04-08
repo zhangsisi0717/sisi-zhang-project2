@@ -67,6 +67,7 @@ ReactDOM.render(
         <Route path="/rule" element={<Rule />} />
         <Route path="/game/:difficulty" element={<Game />} />
         <Route path="/" element={<Navigate replace to="/home" />} />
+        <Route path="/game" element={<Navigate replace to="/home" />} />
       </Routes>
     </BrowserRouter>
   </Provider>,
