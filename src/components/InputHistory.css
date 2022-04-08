@@ -125,16 +125,6 @@ input {
     transform: translate(-50%, -50%);
   }
 
-  /* .diffIndicator {
-    position: absolute;
-    width: 40vw;
-    height: 100px;
-    top: 32%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-  } */
-
   .diffIndicator {
     position: absolute;
     width: 40vw;
@@ -193,7 +183,6 @@ input {
     border: black solid 1px;
   }
   .input-outer-container {
-    /* position: absolute; */
     width: 60vw;
     height: 55vh;
     border: #92ddc8 solid 10px;
@@ -201,16 +190,6 @@ input {
     left: 50%;
     transform: translate(-50%, -50%);
   }
-
-  /* .diffIndicator {
-    position: absolute;
-    width: 40vw;
-    height: 100px;
-    top: 32%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-  } */
 
   .diffIndicator {
     position: absolute;

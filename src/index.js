@@ -2,7 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import { Router, BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  Router,
+  BrowserRouter,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import App from "./pages/App";
 import Rule from "./pages/Rule";
 import Game from "./pages/Game";
@@ -52,7 +58,6 @@ store.subscribe(() => {
   saveState(store.getState());
 });
 
-// const store = createStore(combineReducers);
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
@@ -61,10 +66,9 @@ ReactDOM.render(
         <Route path="/home" element={<App />} />
         <Route path="/rule" element={<Rule />} />
         <Route path="/game/:difficulty" element={<Game />} />
+        <Route path="/" element={<Navigate replace to="/home" />} />
       </Routes>
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );
-
-// <Route path="/game/:difficulty?" element={<Game />} />

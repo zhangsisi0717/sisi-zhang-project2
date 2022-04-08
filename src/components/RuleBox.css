@@ -21,10 +21,6 @@
 }
 
 .rule-content {
-  /* position: absolute;
-  top: 30%;
-  left: 50%; */
-  /* transform: translate(-50%, -50%); */
   text-align: left;
   font-size: 20px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -172,7 +168,6 @@ span {
   .outer-container {
     width: 90vw;
     height: 70vh;
-    /* height: 40vw; */
     position: absolute;
     top: 63%;
     left: 50%;

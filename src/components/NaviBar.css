@@ -1,11 +1,7 @@
 .navi-bar {
-  /* position: absolute; */
-  /* padding-left: 0px; */
   background-color: #92ddc8;
   width: 100%;
   height: 7vw;
-  /* left: 50%; */
-  /* transform: translate(-50%, -50%); */
 }
 
 .wordle {
@@ -17,15 +13,6 @@
   color: white;
   font-size: 50px;
 }
-
-/* .home-tab {
-  position: absolute;
-  top: 70%;
-  left: 5%;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  color: white;
-  font-size: 25px;
-} */
 
 .home-button {
   position: absolute;
