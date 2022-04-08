@@ -1,4 +1,5 @@
 import React from "react";
+import "./WordElement.css";
 
 // export default function WordElement(props) {
 //   if (props.wordInfo) {
@@ -22,6 +23,7 @@ export default function WordElement(props) {
     for (let element of props.wordInfo) {
       items.push(
         <a
+          className="wordle-words"
           style={{
             fontSize: 25,
             fontFamily: "courier",

@@ -12,8 +12,7 @@
   position: absolute;
   width: 400px;
   height: 100px;
-  /* top: 0%; */
-  top: 25%;
+  top: 22%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 20px;
@@ -30,7 +29,7 @@
   width: 400px;
   height: 400px;
   border: #92ddc8 solid 10px;
-  top: 65%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -76,7 +75,7 @@ input {
   width: 400px;
   height: 100px;
   top: 30%;
-  left: 89%;
+  left: 85%;
   transform: translate(-50%, -50%);
 }
 
@@ -103,4 +102,275 @@ input {
   border: #0abab5 5px solid;
   background-color: white;
   color: #0abab5;
+}
+
+@media (max-width: 1024px) and (min-width: 1024px) {
+  .input-history {
+    position: absolute;
+    width: 60vw;
+    height: 60vh;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+  }
+  .input-outer-container {
+    /* position: absolute; */
+    width: 60vw;
+    height: 55vh;
+    border: #92ddc8 solid 10px;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* .diffIndicator {
+    position: absolute;
+    width: 40vw;
+    height: 100px;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+  } */
+
+  .diffIndicator {
+    position: absolute;
+    width: 40vw;
+    height: 10vh;
+    top: 19%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+  }
+
+  input {
+    position: relative;
+    left: 2vw;
+    margin-right: 0px;
+    border: #92ddc8 solid 2px;
+    border-radius: 2px;
+  }
+
+  .input-field {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    transform: translate(-50%, -50%);
+  }
+
+  .word-list {
+    position: absolute;
+    width: 50vw;
+    height: 60vh;
+    top: 69%;
+    left: 82%;
+    transform: translate(-50%, -50%);
+  }
+
+  .restart-button {
+    position: absolute;
+    left: 50%;
+    bottom: -2%;
+    width: 120px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 950px) and (min-width: 800px) {
+  .input-history {
+    position: absolute;
+    width: 60vw;
+    height: 40vh;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: black solid 1px;
+  }
+  .input-outer-container {
+    /* position: absolute; */
+    width: 60vw;
+    height: 55vh;
+    border: #92ddc8 solid 10px;
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* .diffIndicator {
+    position: absolute;
+    width: 40vw;
+    height: 100px;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+  } */
+
+  .diffIndicator {
+    position: absolute;
+    width: 40vw;
+    height: 10vh;
+    top: 4%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+  }
+
+  input {
+    position: relative;
+    left: 2vw;
+    margin-right: 0px;
+    border: #92ddc8 solid 2px;
+    border-radius: 2px;
+  }
+
+  .input-field {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    transform: translate(-50%, -50%);
+  }
+
+  .submit-button {
+    font-size: 20px;
+  }
+
+  .word-list {
+    position: absolute;
+    width: 50vw;
+    height: 60vh;
+    top: 68%;
+    left: 79%;
+    transform: translate(-50%, -50%);
+  }
+
+  .restart-button {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    width: 200px;
+    height: 37px;
+  }
+}
+
+@media (max-width: 540px) and (min-width: 300px) {
+  .input-history {
+    position: absolute;
+    width: 64vw;
+    height: 50vh;
+    top: 65%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+  }
+  .input-outer-container {
+    position: absolute;
+    width: 80vw;
+    height: 55vh;
+    border: #92ddc8 solid 10px;
+    top: 55%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+  }
+
+  .diffIndicator {
+    position: absolute;
+    width: 60vw;
+    height: 20vh;
+    top: 11%;
+    left: 52%;
+    /* transform: translate(-50%, -50%); */
+    font-size: 17px;
+  }
+
+  .word-list {
+    position: absolute;
+    width: 50vw;
+    height: 60vh;
+    top: 72%;
+    left: 62%;
+    transform: translate(-50%, -50%);
+  }
+
+  .restart-button {
+    position: absolute;
+    left: 50%;
+    bottom: 0%;
+    width: 120px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 300px) {
+  .input-outer-container {
+    position: absolute;
+    width: 80vw;
+    height: 50vh;
+    border: #92ddc8 solid 10px;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .diffIndicator {
+    position: absolute;
+    width: 80vw;
+    height: 20vh;
+    top: 30%;
+    left: 50%;
+    /* transform: translate(-50%, -50%); */
+    font-size: 15px;
+  }
+
+  .input-field {
+    position: absolute;
+    left: 50%;
+    top: 8%;
+  }
+
+  input {
+    width: 30vw;
+    height: 8vw;
+    position: relative;
+    left: 2vw;
+    margin-right: 0px;
+  }
+
+  .submit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    height: 10vw;
+    position: relative;
+    left: 2%;
+    font-size: 16px;
+  }
+
+  .word-list {
+    position: absolute;
+    width: 50vw;
+    height: 60vh;
+    top: 72%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+  }
+
+  .restart-button {
+    position: absolute;
+    left: 50%;
+    bottom: 0%;
+    width: 120px;
+    height: 30px;
+  }
 }

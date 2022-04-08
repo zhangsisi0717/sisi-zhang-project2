@@ -143,7 +143,7 @@ export default function InputHistory(props) {
       dispatch({ type: "SET_GAME_OVER" });
       dispatch({
         type: "CHANGE_MESSAGE",
-        value: `Congratulations! You win! The answer is '${target}'`,
+        value: `Congratulations! The answer is '${target}'`,
       });
     } else if (numChances - numAttempts <= 1) {
       dispatch({ type: "ADD_ONE_ATTEMPT" });

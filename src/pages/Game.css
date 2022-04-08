@@ -29,3 +29,72 @@
   font-size: 20px;
   justify-content: center;
 }
+
+@media (max-width: 1024px) and (min-width: 1024px) {
+  .header-message {
+    font-size: 18px;
+    position: absolute;
+    width: 40vw;
+    height: 6vh;
+  }
+}
+
+@media (max-width: 950px) and (min-width: 800px) {
+  .header-message {
+    font-size: 18px;
+    position: absolute;
+    width: 40vw;
+    height: 6vh;
+    top: 20%;
+    font-size: 22px;
+  }
+
+  .message-box {
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 540px) {
+  .header-message {
+    position: absolute;
+    width: 70vw;
+    height: 6vh;
+    font-size: 17px;
+    left: 47%;
+  }
+
+  .message-box {
+    display: flex;
+    position: absolute;
+    width: 90vw;
+    height: 30px;
+    top: 34%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 300px) {
+  .header-message {
+    position: absolute;
+    width: 80vw;
+    height: 5vh;
+    font-size: 15px;
+    left: 49%;
+  }
+
+  .message-box {
+    display: flex;
+    position: absolute;
+    width: 95vw;
+    height: 10vh;
+    top: 36%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 13px;
+  }
+}
