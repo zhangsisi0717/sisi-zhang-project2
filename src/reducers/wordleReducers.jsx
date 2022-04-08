@@ -18,7 +18,7 @@ import {
 // };
 ///
 
-function messageReducer(state = "this is the test init message", action) {
+function messageReducer(state = "", action) {
   if (action.type === "CHANGE_MESSAGE") {
     return action.value;
   }
@@ -30,8 +30,6 @@ function messageReducer(state = "this is the test init message", action) {
 }
 
 function historyReducer(state = [], action) {
-  // console.log("add to history called");
-  // console.log(action);
   if (action.type === "ADD_TO_HISTORY") {
     let copyState = [...state];
     copyState.push(action.value);
@@ -45,7 +43,6 @@ function historyReducer(state = [], action) {
 }
 
 function attemptsReducer(state = 0, action) {
-  // console.log("attemptsReducer called");
   if (action.type === "ADD_ONE_ATTEMPT") {
     return state + 1;
   }
@@ -90,10 +87,8 @@ function setGameAttribute(
 
 function usedWordsReducer(state = [], action) {
   if (action.type === "ADD_WORD") {
-    console.log("add used words called");
     const newState = [...state];
     newState.push(action.value);
-    console.log(newState);
     return newState;
   }
 

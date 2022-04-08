@@ -18,7 +18,6 @@ export default function Game() {
     return state.getMessage;
   }, shallowEqual);
 
-  console.log(message);
   return (
     <div className="game-outline-box">
       <div className="header-message">

@@ -21,9 +21,6 @@ export default function InputHistory(props) {
   );
   const usedWords = useSelector((state) => state.getUsedWords, shallowEqual);
   const isGameOver = useSelector((state) => state.isGameOver, shallowEqual);
-  console.log("here1, usedWords ===");
-  console.log(usedWords);
-  // console.log(gameAttribute.gameDifficulty);
 
   if (
     !gameAttribute.isGameOn ||
@@ -36,10 +33,7 @@ export default function InputHistory(props) {
   const target = gameAttribute.answer;
 
   function isInputAlreadyUsed(input) {
-    console.log("isInputAlreadyUsed called");
-    console.log(usedWords);
     input = input.toUpperCase();
-    console.log(`input == ${input}`);
     if (usedWords.includes(input)) {
       dispatch({
         type: "CHANGE_MESSAGE",
@@ -52,14 +46,12 @@ export default function InputHistory(props) {
 
   function isInputCorrectLength(target, input) {
     if (input.length < target.length) {
-      // console.log("length is not equal");
       dispatch({
         type: "CHANGE_MESSAGE",
         value: "Please input longer word",
       });
       return false;
     } else if (input.length > target.length) {
-      // console.log("length is not equal");
       dispatch({
         type: "CHANGE_MESSAGE",
         value: "Please input shorter word",
