@@ -10,49 +10,49 @@ import NaviBar from "./components/NaviBar";
 import DifficultyBox from "./components/DifficultyBox";
 import combineReducers from "./reducers/wordleReducers";
 
-// const saveState = (state) => {
-//   try {
-//     // Convert the state to a JSON string
-//     const serialisedState = JSON.stringify(state);
+const saveState = (state) => {
+  try {
+    // Convert the state to a JSON string
+    const serialisedState = JSON.stringify(state);
 
-//     // Save the serialised state to localStorage against the key 'app_state'
-//     window.localStorage.setItem("wordle_game_state", serialisedState);
-//   } catch (err) {
-//     console.log("error saving the state to local store:");
-//     console.log(err);
-//   }
-// };
+    // Save the serialised state to localStorage against the key 'app_state'
+    window.localStorage.setItem("wordle_game_state", serialisedState);
+  } catch (err) {
+    console.log("error saving the state to local store:");
+    console.log(err);
+  }
+};
 
-// const loadState = () => {
-// try {
-// Load the data saved in localStorage, against the key 'app_state'
-// const serialisedState = window.localStorage.getItem("wordle_game_state");
+const loadState = () => {
+  try {
+    // Load the data saved in localStorage, against the key 'app_state';
+    const serialisedState = window.localStorage.getItem("wordle_game_state");
 
-// Passing undefined to createStore will result in our app getting the default state
-// If no data is saved, return undefined
-// if (!serialisedState) return undefined;
+    // Passing undefined to createStore will result in our app getting the default state
+    // If no data is saved, return undefined
+    if (!serialisedState) return undefined;
 
-// De-serialise the saved state, and return it.
-//     return JSON.parse(serialisedState);
-//   } catch (err) {
-//     console.log("error loading state from local store:");
-//     console.log(err);
-//     return undefined;
-//   }
-// };
+    // De-serialise the saved state, and return it.
+    return JSON.parse(serialisedState);
+  } catch (err) {
+    console.log("error loading state from local store:");
+    console.log(err);
+    return undefined;
+  }
+};
 
 /**
  * This is where you create the app store
  */
-// const oldState = loadState();
+const oldState = loadState();
 
-// const store = createStore(combineReducers, oldState);
+const store = createStore(combineReducers, oldState);
 
-// store.subscribe(() => {
-//   saveState(store.getState());
-// });
+store.subscribe(() => {
+  saveState(store.getState());
+});
 
-const store = createStore(combineReducers);
+// const store = createStore(combineReducers);
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

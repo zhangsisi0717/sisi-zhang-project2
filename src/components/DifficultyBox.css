@@ -50,3 +50,25 @@ a {
     width: 50vw;
   }
 }
+
+@media (max-width: 1024px) and (min-width: 1024px) {
+  .diff-box-outer-container {
+    position: absolute;
+    width: 65vw;
+    height: 300px;
+    top: 59%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 1280px) and (min-width: 1280px) {
+  .diff-box-outer-container {
+    position: absolute;
+    width: 55vw;
+    height: 300px;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

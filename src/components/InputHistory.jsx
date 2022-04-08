@@ -27,7 +27,7 @@ export default function InputHistory(props) {
     gameAttribute.gameDifficulty !== props.difficulty ||
     !gameAttribute.answer
   ) {
-    dispatch({ type: "SET_GAME_ON", value: props.difficulty });
+    dispatch({ type: "RESET", value: props.difficulty });
   }
 
   const target = gameAttribute.answer;
