@@ -5,9 +5,9 @@
   position: absolute;
   width: 400px;
   height: 50px;
-  top: 27%;
+  top: 140px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   background-color: #f8e5b7;
   font-size: 22px;
   justify-content: center;
@@ -20,9 +20,9 @@
   position: absolute;
   width: 700px;
   height: 30px;
-  top: 34%;
+  top: 210px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   background-color: white;
   color: rgb(221, 86, 86);
   font-size: 20px;
@@ -35,6 +35,14 @@
     position: absolute;
     width: 40vw;
     height: 6vh;
+    top: 140px;
+  }
+
+  .message-box {
+    position: absolute;
+    width: 700px;
+    height: 30px;
+    top: 195px;
   }
 }
 
@@ -44,25 +52,43 @@
     position: absolute;
     width: 40vw;
     height: 6vh;
-    top: 20%;
+    top: 220px;
     font-size: 22px;
   }
 
   .message-box {
     position: absolute;
-    top: 28%;
+    top: 330px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 799px) and (min-width: 541px) {
+  .header-message {
+    position: absolute;
+    width: 45vw;
+    height: 6vh;
+    top: 220px;
+    font-size: 22px;
+  }
+
+  .message-box {
+    position: absolute;
+    top: 330px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: 540px) and (min-width: 300px) {
   .header-message {
     position: absolute;
     width: 70vw;
     height: 6vh;
     font-size: 17px;
-    left: 47%;
+    top: 160px;
+    left: 50%;
   }
 
   .message-box {
@@ -70,9 +96,9 @@
     position: absolute;
     width: 90vw;
     height: 30px;
-    top: 34%;
-    left: 47%;
-    transform: translate(-50%, -50%);
+    top: 240px;
+    left: 50%;
+    transform: translate(-50%, 0);
     font-size: 17px;
   }
 }
@@ -84,6 +110,7 @@
     height: 5vh;
     font-size: 15px;
     left: 49%;
+    top: 150px;
   }
 
   .message-box {
@@ -91,7 +118,7 @@
     position: absolute;
     width: 95vw;
     height: 10vh;
-    top: 36%;
+    top: 245px;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 13px;

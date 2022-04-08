@@ -1,10 +1,10 @@
 .input-history {
-  position: fixed;
+  position: absolute;
   width: 450px;
   height: 500px;
-  top: 60%;
+  top: 200px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   background-color: transparent;
   border: none;
 }
@@ -12,9 +12,9 @@
   position: absolute;
   width: 400px;
   height: 100px;
-  top: 22%;
+  top: 40px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   font-size: 20px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: rgb(0, 98, 66);
@@ -29,9 +29,9 @@
   width: 400px;
   height: 400px;
   border: #92ddc8 solid 10px;
-  top: 60%;
+  top: 65px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
 }
 
 .input-field {
@@ -241,34 +241,43 @@ input {
   }
 }
 
+@media (max-width: 799px) and (min-width: 541px) {
+  .input-history {
+    position: absolute;
+    top: 350px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
 @media (max-width: 540px) and (min-width: 300px) {
   .input-history {
     position: absolute;
-    width: 64vw;
-    height: 50vh;
-    top: 65%;
-    left: 45%;
-    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 500px;
+    top: 200px;
+    left: 50%;
+    transform: translate(-50%, 0);
     background-color: transparent;
     border: none;
   }
   .input-outer-container {
     position: absolute;
-    width: 80vw;
-    height: 55vh;
+    width: 70vw;
+    height: 350px;
     border: #92ddc8 solid 10px;
-    top: 55%;
-    left: 57%;
-    transform: translate(-50%, -50%);
+    top: 93px;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 
   .diffIndicator {
     position: absolute;
     width: 60vw;
     height: 20vh;
-    top: 11%;
+    top: 70px;
     left: 52%;
-    /* transform: translate(-50%, -50%); */
+    transform: translate(-50%, 0);
     font-size: 17px;
   }
 
@@ -276,9 +285,9 @@ input {
     position: absolute;
     width: 50vw;
     height: 60vh;
-    top: 72%;
-    left: 62%;
-    transform: translate(-50%, -50%);
+    top: 50px;
+    left: 70%;
+    transform: translate(-50%, 0);
   }
 
   .restart-button {
@@ -290,24 +299,39 @@ input {
   }
 }
 
+/* @media (max-width: 399px) and(min-width:301px) {
+
+} */
+
 @media (max-width: 300px) {
+  .input-history {
+    position: absolute;
+    width: 200px;
+    height: 500px;
+    top: 200px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: transparent;
+    border: none;
+  }
+
   .input-outer-container {
     position: absolute;
     width: 80vw;
     height: 50vh;
     border: #92ddc8 solid 10px;
-    top: 55%;
+    top: 100px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
   }
 
   .diffIndicator {
     position: absolute;
     width: 80vw;
-    height: 20vh;
-    top: 30%;
+    height: 5vh;
+    top: 50px;
     left: 50%;
-    /* transform: translate(-50%, -50%); */
+    transform: translate(-50%, 0);
     font-size: 15px;
   }
 

@@ -1,12 +1,12 @@
 .outer-container {
   /* width: 500px;
   height: 600px; */
-  width: 500px;
-  height: 600px;
+  width: 650px;
+  height: 500px;
   position: absolute;
-  top: 60%;
+  top: 180px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   background-color: rgb(146, 221, 200, 0.5);
 }
 
@@ -166,17 +166,17 @@ span {
 
 @media (max-width: 300px) {
   .outer-container {
-    width: 90vw;
-    height: 70vh;
+    width: 60vw;
+    height: 95vh;
     position: absolute;
-    top: 63%;
+    top: 180px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
     background-color: rgb(146, 221, 200, 0.5);
   }
 
   .rule-title {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .rule-content {
@@ -191,5 +191,7 @@ span {
     width: 35vw;
     height: 18px;
     font-size: 12px;
+    top: 90vh;
+    transform: translate(-50%, 0);
   }
 }
