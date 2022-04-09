@@ -29,19 +29,6 @@ function messageReducer(state = "", action) {
   return state;
 }
 
-// function historyReducer(state = [], action) {
-//   if (action.type === "ADD_TO_HISTORY") {
-//     let copyState = [...state];
-//     copyState.push(action.value);
-//     return copyState;
-//   }
-
-//   if (action.type === "RESET") {
-//     return [];
-//   }
-//   return state;
-// }
-
 function historyReducer(state = [], action) {
   if (action.type === "ADD_TO_HISTORY") {
     let copyState = [...state];
@@ -83,17 +70,12 @@ function setGameAttribute(
 ) {
   if (action.type === "RESET") {
     let word = genTargetWord(action.value);
-    console.log(`target word is: ${word}`);
     return {
       isGameOn: true,
       gameDifficulty: action.value,
       answer: word,
     };
   }
-
-  // if (action.type === "RESET") {
-  //   return { isGameOn: false, gameDifficulty: null, answer: null };
-  // }
 
   return state;
 }
